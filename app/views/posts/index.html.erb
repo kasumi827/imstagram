@@ -1,4 +1,7 @@
+
 <% @posts.each do |post| %>
+
+    <% if post.user_id == current_user.id %>
   <div class="col-md-8 col-md-2 mx-auto">
     <div class="card-wrap">
       <div class="card">
@@ -27,7 +30,6 @@
         <div class="card-body">
           <div class="row parts">
 
-
             <div id="like-icon-post-<%= post.id.to_s %>">
               <% if post.liked_by(current_user).present? %>
                 <%= link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
@@ -39,7 +41,7 @@
 
             <%= link_to "", "#", class: "comment" %>
           </div>
-
+  
 
           <div id="like-text-post-<%= post.id.to_s %>">
             <%= render "like_text", { likes: post.likes } %>
@@ -64,10 +66,11 @@
                 <%= f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off %>
               <% end %>
             </div>
-
+ 
           </div>
         </div>
       </div>
     </div>
   </div>
+<% end %>
 <% end %>

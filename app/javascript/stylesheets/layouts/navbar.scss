@@ -4,12 +4,13 @@
     height: 77px;
     &__brand {
       height: 35px;
-      width: 176px;
-      background-size: 114px;
+      width: 200px;
+      // background-size: 114px;
     }
     &__mainLogo {
       background-repeat: no-repeat;
       background-image: url("~logo.png");
+      background-size: contain;
     }
     &-nav {
       & > li {

@@ -1,6 +1,11 @@
-<% if user_signed_in? %> <%# この行を追加する %>
-  <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
-<% end %> <%# この行を追加する %>
+<% if user_signed_in? %>
+  <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "home_text1" %>
+<% end %> 
 
-<p>このページは仮のトップページです。</p>
-<%= link_to "仮のボタンです", "#", class: "btn btn-primary" %>
+<% if !user_signed_in? %> 
+  <%= link_to "サインイン", "/users/sign_in", class: "btn btn-primary" %>
+<% end %> 
+
+<% if user_signed_in? %>
+  <p class="home_text2">右上の投稿をクリック！</p>
+<% end %> 
